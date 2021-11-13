@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+
+<form method="POST" action="{% url 'account_login' %}">
+
+	{{ form.login }}
+
+	<button type="submit" class="btn btn-primary">Se connecter</button>
+	
+</form>
+	
+{% endblock content %}

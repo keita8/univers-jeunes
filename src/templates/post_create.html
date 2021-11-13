@@ -1,0 +1,27 @@
+{% extends "base.html" %} {% load crispy_forms_tags %} {% block title %} {% if 'create' in request.path %} {{titre1}} {% else %} {{titre1}} {% endif %} {% endblock title %} {% block content %} {% if user.is_authenticated %}
+
+
+<div class="container">
+    
+<div class="col-4 mb-5 mt-5 ">
+
+
+    <h3>{{ titre1 }}</h3>
+    {{ form.media }}
+    <form method="POST" action="." enctype="multipart/form-data">
+        {% csrf_token %} {{ form|crispy }}
+        <button class="btn btn-primary" type="submit">{{titre}}</button>
+    </form>
+
+</div>
+
+</div>
+
+
+{% else %}
+
+<script>window.location.href = '{% url "home" %}';</script>
+
+{% endif %} 
+
+{% endblock content %}

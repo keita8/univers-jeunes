@@ -1,0 +1,18 @@
+/* your styles go here */
+
+.supprimer {
+    color: crimson;
+    font-weight: bold;
+}
+
+.supprimer:hover {
+    color: crimson;
+}
+
+.supprimer a {
+    color: crimson;
+}
+
+.modifier {
+    font-weight: bold;
+}
