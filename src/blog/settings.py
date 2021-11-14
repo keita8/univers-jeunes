@@ -79,23 +79,23 @@ WSGI_APPLICATION = 'blog.wsgi.application'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 # Database
-# DATABASES = {
-    
-#     'default' : {
-
-#         'ENGINE'   : 'django.db.backends.postgresql',
-#         'NAME'     : config('DATABASE_NAME'),
-#         'USER'     : config('DATABASE_USER') ,
-#         'PASSWORD' : config('DATABASE_PASSWORD') ,
-#         'HOST'     : config('DATABASE_HOST'),
-#         'PORT'     : config('DATABASE_PORT'),
-#     }
-# }
-
-
 DATABASES = {
-    'default' : (dj_database_url.config(default='postgres//postgres:admin@localhost/namory'))
+    
+    'default' : {
+
+        'ENGINE'   : 'django.db.backends.postgresql',
+        'NAME'     : config('DATABASE_NAME'),
+        'USER'     : config('DATABASE_USER') ,
+        'PASSWORD' : config('DATABASE_PASSWORD') ,
+        'HOST'     : config('DATABASE_HOST'),
+        'PORT'     : config('DATABASE_PORT'),
+    }
 }
+
+
+# DATABASES = {
+#     'default' : (dj_database_url.config(default='postgres//postgres:admin@localhost/namory'))
+# }
 
 
 AUTHENTICATION_BACKENDS = [
@@ -202,5 +202,6 @@ ACCOUNT_FORMS = {
     'set_password': 'accounts.forms.PwdResetConfirmForm',    
     'add_email': 'accounts.forms.MyCustomAddEmailForm',
     'change_password': 'accounts.forms.MyCustomChangePasswordForm',
+    'reset_password_from_key': 'accounts.forms.MyResetPasswordKeyForm',
     }
 # ACCOUNT_FORMS = {'reset_password': 'accounts.forms.MyCustomResetPasswordForm'}

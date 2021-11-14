@@ -2,7 +2,7 @@ from __future__ import absolute_import
 from django import forms
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
-from allauth.account.forms import LoginForm, ResetPasswordForm, SignupForm, ChangePasswordForm
+from allauth.account.forms import LoginForm, ResetPasswordForm, SignupForm, ChangePasswordForm, ResetPasswordKeyForm
 from django.contrib.auth.forms import AuthenticationForm, PasswordResetForm, PasswordChangeForm, SetPasswordForm, UserCreationForm
 from allauth.account.forms import AddEmailForm
 import warnings
@@ -37,14 +37,10 @@ from .utils import (
 # )
 
 
+class MyResetPasswordKeyForm(ResetPasswordKeyForm):
+    password1    = forms.CharField(label='Nouveau mot de passe', widget=forms.PasswordInput(attrs={'class':'form-control', 'placeholder':'Nouveau mot de passe'}))
+    password2    = forms.CharField(label='Confirmer nouveau mot de passe', widget=forms.PasswordInput(attrs={'class':'form-control', 'placeholder':'Confirmer votre nouveau mot de passe'}))
 
-
-# FORMULAIRE DE CONNECTION
-# class MyLoginForm(LoginForm):
-#     login = forms.CharField(label="Nom d'utilisateur", widget=forms.TextInput(
-#         attrs={'class': 'form-control', 'placeholder': "Nom d'utilisateur ici", "required": "true", "name": "username"}))
-#     password = forms.CharField(label="Mot de passe", widget=forms.PasswordInput(
-#         attrs={'class': 'form-control', 'placeholder': "Mot de passe", "required": "true", "name": "password"}))
 
 
 # FORMULAIRE D'INSCRIPTION
@@ -223,7 +219,6 @@ class CustomSignupForm(SignupForm):
         user.password2 = self.cleaned_data['password2']
         user.save()
         return user
-
 
 
 
