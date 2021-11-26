@@ -9,8 +9,10 @@ from .forms import CommentForm, PostForm, ContactForm
 from django.views.generic import CreateView, DeleteView, UpdateView, ListView
 from django.http import Http404
 from django.views.generic import CreateView, DetailView, UpdateView, DeleteView, ListView
+from marketing.forms import EmailSignupForm
+from marketing.views import subscription
 
-
+form = EmailSignupForm()
 #----------------------------------------------------------------------------------------------#
 # RECUPERER UN EDITEUR
 def get_author(user):
@@ -90,13 +92,16 @@ def index(request):
     if request.method == "POST":
         email = request.POST['email']
         new_signup = SignUp()
+        # subscription(email)
         new_signup.email = email
+        messages.success(request, 'Merci d\'avoir souscrit à la newsletter')
         new_signup.save()
 
     context = {
 
         'queryset': queryset,
         'latested': latest,
+
     }
     return render(request, 'index.html', context)
 

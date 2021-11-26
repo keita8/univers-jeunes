@@ -205,7 +205,7 @@ ACCOUNT_FORMS = {
     'reset_password_from_key': 'accounts.forms.MyResetPasswordKeyForm',
     }
 # ACCOUNT_FORMS = {'reset_password': 'accounts.forms.MyCustomResetPasswordForm'}
-# MAILING SERVICE
+# MAILCHIMP SERVICE
 MAILCHIMP_API_KEY = config('YOUR_API_KEY')
 MAILCHIMP_DATA_CENTER = config('YOUR_LAST_3_CHARACTERS_OF_YOUR_API_KEY')
 MAILCHIMP_EMAIL_LIST_ID = config('AUDIENCE_ID')
