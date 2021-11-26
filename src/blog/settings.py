@@ -1,18 +1,24 @@
 from pathlib import Path
 import os
-# import environ
-from decouple import config
+import environ
+# from decouple import config
 import dj_database_url
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+env = environ.Env()
+environ.Env.read_env(env_file=str(BASE_DIR / "blog" / ".env"))
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config("SECRET_KEY")
+SECRET_KEY = env("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config("DEBUG")
+DEBUG = env.bool("DEBUG", False)
 
-ALLOWED_HOSTS = config('ALLOWED_HOSTS')
+ALLOWED_HOSTS = env.list('ALLOWED_HOSTS')
+
+print(SECRET_KEY)
+print(DEBUG)
+print(ALLOWED_HOSTS)
 
 # Application definition
 
@@ -131,9 +137,9 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-LANGUAGE_CODE = config('LANGUAGE_CODE')
+LANGUAGE_CODE = env('LANGUAGE_CODE')
 
-TIME_ZONE = config('TIME_ZONE')
+TIME_ZONE = env('TIME_ZONE')
 
 USE_I18N = True
 
@@ -189,9 +195,9 @@ MESSAGE_TAGS = {
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = config('EMAIL_HOST_USER')
-DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL')
-EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+EMAIL_HOST_USER = env('EMAIL_HOST_USER')
+DEFAULT_FROM_EMAIL = env('DEFAULT_FROM_EMAIL')
+EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
 EMAIL_USE_TLS = True
 
 
@@ -209,6 +215,6 @@ ACCOUNT_FORMS = {
     'reset_password_from_key': 'accounts.forms.MyResetPasswordKeyForm',
     }
 # MAILING SERVICE
-MAILCHIMP_API_KEY = config('YOUR_API_KEY')
-MAILCHIMP_DATA_CENTER = config('YOUR_LAST_3_CHARACTERS_OF_YOUR_API_KEY')
-MAILCHIMP_EMAIL_LIST_ID = config('AUDIENCE_ID')
+MAILCHIMP_API_KEY = env('YOUR_API_KEY')
+MAILCHIMP_DATA_CENTER = env('YOUR_LAST_3_CHARACTERS_OF_YOUR_API_KEY')
+MAILCHIMP_EMAIL_LIST_ID = env('AUDIENCE_ID')
