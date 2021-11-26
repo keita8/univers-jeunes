@@ -92,10 +92,6 @@ DATABASES = {
 }
 
 
-# DATABASES = {
-#     'default' : (dj_database_url.config(default='postgres//postgres:admin@localhost/namory'))
-# }
-
 
 AUTHENTICATION_BACKENDS = [
 
@@ -179,7 +175,6 @@ MESSAGE_TAGS = {
 
 }
 
-# AUTH_USER_MODEL = 'accounts.Account'
 # Configuration d'smtp server
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
@@ -193,7 +188,7 @@ EMAIL_USE_TLS = True
 # whitenoise
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-# {'login': 'accounts.forms.MyLoginForm'}
+
 ACCOUNT_FORMS = {
     'login': 'accounts.forms.MyLoginForm',
     'reset_password': 'accounts.forms.MyCustomResetPasswordForm',
@@ -203,7 +198,6 @@ ACCOUNT_FORMS = {
     'change_password': 'accounts.forms.MyCustomChangePasswordForm',
     'reset_password_from_key': 'accounts.forms.MyResetPasswordKeyForm',
     }
-# ACCOUNT_FORMS = {'reset_password': 'accounts.forms.MyCustomResetPasswordForm'}
 # MAILING SERVICE
 MAILCHIMP_API_KEY = config('YOUR_API_KEY')
 MAILCHIMP_DATA_CENTER = config('YOUR_LAST_3_CHARACTERS_OF_YOUR_API_KEY')
