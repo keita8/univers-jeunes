@@ -12,13 +12,13 @@ environ.Env.read_env(env_file=str(BASE_DIR / "blog" / ".env"))
 SECRET_KEY = env("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env.bool("DEBUG", False)
+DEBUG = True
+# DEBUG = env.bool("DEBUG", False)
 
-ALLOWED_HOSTS = env.list('ALLOWED_HOSTS')
+ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = env.list('ALLOWED_HOSTS')
 
-print(SECRET_KEY)
-print(DEBUG)
-print(ALLOWED_HOSTS)
+
 
 # Application definition
 
@@ -131,9 +131,9 @@ AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
     },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
+    # {
+    #     'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+    # },
 ]
 
 
@@ -179,11 +179,11 @@ TINYMCE_DEFAULT_CONFIG = {
 SITE_ID = 1
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
-LOGIN_URL = 'account_login'
+LOGIN_URL = 'accounts:login'
 
-ACCOUNT_SIGNUP_REDIRECT_URL = "/accounts/login/"
+# ACCOUNT_SIGNUP_REDIRECT_URL = "/accounts/login/"
 
-# AUTH_USER_MODEL = 'accounts.Account'
+# AUTH_USER_MODEL = 'accounts.CustomUser'
 
 from django.contrib.messages import constants as messages
 MESSAGE_TAGS = {

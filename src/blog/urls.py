@@ -28,10 +28,8 @@ urlpatterns = [
     path('marketing/', include('marketing.urls')),
     path('tinymce/', include('tinymce.urls')),
     path('contact/', contact, name='contact'),
-    path('accounts/', include('accounts.urls', namespace='accounts')),
-    path('accounts/', include('allauth.urls')),
+    path('accounts/', include('accounts.urls')),
     # path('accounts/', include('django.contrib.auth.urls')),
-    # path('members/', include('members.urls')),
 ]
 
 

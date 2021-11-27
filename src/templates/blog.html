@@ -46,6 +46,10 @@ Articles
 
             </div>
             <!-- Pagination -->
+
+            {% if queryset %}
+              
+            
             <nav aria-label="Page navigation example">
               <ul class="pagination pagination-template d-flex justify-content-center">
 
@@ -64,6 +68,9 @@ Articles
                 <li class="page-item"><a href="?{{ page_request_var }}={{ queryset.next_page_number}} " class="page-link"> <i class="fa fa-angle-right"></i></a></li>
 
                 {% endif %}
+
+
+              {% endif %}
 
               </ul>
             </nav>

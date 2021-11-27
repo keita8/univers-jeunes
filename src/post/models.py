@@ -12,8 +12,12 @@ User = get_user_model()
 #----------------------------------------------------------------------------------------------#
 # MODELE ASSOCIE A UN AUTEUR D'ARTICLE
 class Author(models.Model):
-	user        = models.OneToOneField(User, on_delete=models.CASCADE ,verbose_name='Auteur', related_name='author')
-	profile_pic = models.ImageField(verbose_name='Photo de profil')
+	user         = models.OneToOneField(User, on_delete=models.CASCADE ,verbose_name='Auteur', related_name='author')
+	profile_pic  = models.ImageField(verbose_name='Photo de profil')
+	website_url  = models.CharField(max_length=250, null=True, blank=True)
+	fb_url       = models.CharField(max_length=250, null=True, blank=True)
+	twitter_url  = models.CharField(max_length=250, null=True, blank=True)
+	intagram_url = models.CharField(max_length=250, null=True, blank=True)
 
 	class Meta:
 		verbose_name = 'Utilisateur'
@@ -60,7 +64,7 @@ class Post(models.Model):
 		)
 	title         = models.CharField(max_length=200, verbose_name='Titre')
 	slug          = models.SlugField(max_length=200, default='')
-	overview      = HTMLField(blank=True, null=True ,verbose_name='Aperçu', max_length=150)
+	overview      = HTMLField(blank=True, null=True ,verbose_name='Aperçu', max_length=450)
 	content       = HTMLField(blank=True, null=True, verbose_name='Contenu')
 	timestamp     = models.DateTimeField(auto_now_add=True, verbose_name='Date de publication')
 	author        = models.ForeignKey(Author, on_delete=models.CASCADE, verbose_name='Editeur')

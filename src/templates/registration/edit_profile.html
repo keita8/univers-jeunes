@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+	Editer mon profil
+{% endblock title %}
+
+{% block content %}
+	
+
+	<section class="section-conten padding-y" style="min-height:84vh">
+
+<!-- ============================ COMPONENT LOGIN   ================================= -->
+	<div class="card mx-auto" style="max-width: 380px; margin-top:100px;">
+      <div class="card-body">
+      <h4 class="card-title mb-4">Editer mon profil</h4>
+
+      {% include "includes/alerts.html" %}
+
+
+      <form action="" method="POST">
+        {% csrf_token %}
+       <div class="form-group">
+          <div class="input-group">
+              <div class="input-group-prepend">
+                  <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+              </div>
+
+              {{ form.username }}
+
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="input-group">
+              <div class="input-group-prepend">
+                  <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+              </div>
+
+              {{ form.last_name }}
+
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="input-group">
+              <div class="input-group-prepend">
+                  <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+              </div>
+
+              {{ form.first_name }}
+
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="input-group">
+              <div class="input-group-prepend">
+                  <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+              </div>
+
+              {{ form.email }}
+
+          </div>
+        </div>
+
+
+          <div class="form-group">
+          	</div> <span class="helptext">Les mots de passe ne sont pas enregistrés en clair, ce qui ne permet pas d’afficher le mot de passe de cet utilisateur, mais il est possible de le changer en utilisant <a href="../password/">ce formulaire</a>. </span></p
+          </div> 
+          <div></div>
+          <br>
+          <div class="form-group">
+              <button type="submit" class="btn btn-primary btn-block"> Modifier  </button>
+          </div> <!-- form-group// -->    
+      </form>
+      </div> <!-- card-body.// -->
+    </div> <!-- card .// -->
+
+     <br><br>
+<!-- ============================ COMPONENT LOGIN  END.// ================================= -->
+
+
+</section>
+<!-- ========================= SECTION CONTENT END// ========================= -->
+
+
+
+{% endblock content %}
