@@ -1,0 +1,101 @@
+{% extends "base/base.html" %}
+{% load static %}
+
+{% block title %}
+	Resultat recherche
+{% endblock title %}
+
+{% block content %}
+
+{% if queryset %}
+	
+
+    <div class="container">
+      <div class="row">
+        <!-- Latest Posts -->
+        <main class="posts-listing col-lg"> 
+          <div class="container">
+            <div class="row">
+              <!-- post -->
+
+              {% for query in queryset %}
+              	
+              <div class="post col-xl-4">
+                <div class="post-thumbnail"><a href="{{ query.get_absolute_url }}"><img src="{{query.thumbnail.url}} " alt="..." class="img-fluid"></a></div>
+                <div class="post-details">
+                  <div class="post-meta d-flex justify-content-between">
+                    <div class="date meta-last">{{query.timestamp|date:'d-M'}} | {{ query.timestamp|date:'Y' }}</div>
+
+                  </div><a href="{{ query.get_absolute_url }}">
+                    <h3 class="h4">{{ query.title|safe }}</h3></a>
+                  <p class="text-muted">{{ query.overview|safe|truncatechars:'150' }}</p>
+                  <footer class="post-footer d-flex align-items-center"><a href="#" class="author d-flex align-items-center flex-wrap">
+                      <div class="avatar"><img src="{{ query.author.profile_pic.url }}" alt="..." class="img-fluid"></div>
+                      <div class="title"><span>{{ query.author }}</span></div></a>
+                    <div class="date"><i class="icon-clock"></i>{{ query.timestamp|timesince }}</div>
+                    <div class="comments meta-last"><i class="icon-comment"></i>{{ query.comment_count }}</div>
+                  </footer>
+                </div>
+              </div>
+              <!-- post             -->
+
+              {% endfor %}
+
+            </div>
+            <!-- Pagination -->
+            <nav aria-label="Page navigation example">
+              <ul class="pagination pagination-template d-flex justify-content-center">
+                <li class="page-item"><a href="#" class="page-link"> <i class="fa fa-angle-left"></i></a></li>
+                <li class="page-item"><a href="#" class="page-link active">1</a></li>
+                <li class="page-item"><a href="#" class="page-link">2</a></li>
+                <li class="page-item"><a href="#" class="page-link">3</a></li>
+                <li class="page-item"><a href="#" class="page-link"> <i class="fa fa-angle-right"></i></a></li>
+              </ul>
+            </nav>
+          </div>
+        </main>
+  
+      </div>
+    </div>
+
+
+{% else %}
+	
+<div class="container not_found">
+	
+	<div class="search_not_found">
+		<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque tenetur a assumenda atque magni neque aspernatur odit, cupiditate voluptatum quam commodi, vitae rerum veritatis aliquid animi minima molestias quia vero? Voluptas quisquam dolor id fugiat vitae velit quam corrupti rem numquam rerum natus, voluptatem ratione quidem, adipisci quae enim incidunt esse? Aperiam mollitia accusamus incidunt voluptatibus aut accusantium provident magnam, deserunt ea repellat, fugit vel distinctio vero, dolor commodi delectus qui fugiat odio. Inventore magni soluta assumenda veritatis, aut repellendus consequuntur alias. Autem reprehenderit velit modi accusamus debitis pariatur, provident harum quidem consectetur. Quod, temporibus! Optio inventore, omnis a officiis.</p>
+	</div>
+
+	<div class="div">
+	</div>
+
+</div>
+
+
+
+
+{% endif %}
+
+
+
+
+
+
+
+
+<!-- 	<div class="container">
+		<div class="row">
+			<div class="col-lg-6">
+
+				{% for query in queryset %}
+				<a href="{{ query.get_absolute_url }}">
+					
+					<h2>{{ query.title|safe }}</h2>
+
+				</a>
+				{% endfor %}
+			</div>
+		</div>
+	</div> -->
+{% endblock content %}
