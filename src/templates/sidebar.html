@@ -51,7 +51,7 @@
             {% for cat in category_count %}
               
             <div class="item d-flex justify-content-between">
-              <a href="#"> {{ cat.categories__title|upper}} </a><span> {{ cat.categories__title__count}} </span>
+              <a href="{{ cat.get_url }}"> {{ cat.categories__title|upper}} </a><span> {{ cat.categories__title__count}} </span>
             </div>
 
             {% endfor %}

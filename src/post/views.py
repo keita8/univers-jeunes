@@ -101,7 +101,6 @@ def index(request):
 
         'queryset': queryset,
         'latested': latest,
-
     }
     return render(request, 'index.html', context)
 
@@ -110,9 +109,10 @@ def index(request):
 
 def blog(request):
 
-    category_count = get_category_count()
 
+    category_count = get_category_count()
     post_list = Post.objects.filter(status='publie')
+
     most_recent = Post.objects.order_by('-timestamp')[:4]
     paginator = Paginator(post_list, 4)
     page_request_var = 'page'
@@ -129,7 +129,7 @@ def blog(request):
         'queryset': paginated_queryset,
         'page_request_var': page_request_var,
         'most_recent': most_recent,
-        'category_count': category_count
+        'category_count': category_count,
     }
     return render(request, 'blog.html', context)
 
@@ -201,6 +201,7 @@ def post_update(request, slug):
         request.FILES or None,
         instance=post)
     author = get_author(request.user)
+
     if post.author == author:
         if request.method == "POST":
             if form.is_valid():

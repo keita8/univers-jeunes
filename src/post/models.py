@@ -37,6 +37,9 @@ class Category(models.Model):
 		verbose_name = 'Categorie'
 		verbose_name_plural = 'Categories'
 
+	def get_url(self):
+		return reverse('category_post_list', args=[self.slug])
+
 	def __str__(self):
 		return self.title 
 
