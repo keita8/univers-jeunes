@@ -1,0 +1,16 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+
+{% include "head.html" %}
+
+<body>
+    {% include "header.html" %} {% block content %} {% endblock content %}
+
+    <!-- Page Footer-->
+    {% include "includes/footer.html" %}
+    <!-- JavaScript files-->
+    {% include "includes/js.html" %}
+</body>
+
+</html>

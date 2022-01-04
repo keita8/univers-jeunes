@@ -1,0 +1,17 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+{% include "head.html" %}
+
+<body>
+    {% include "header.html" %} {% block content %} {% endblock content %}
+
+
+    <!-- Page Footer-->
+    {% include "includes/footer.html" %}
+    <!-- JavaScript files-->
+    {% include "includes/js.html" %}
+</body>
+
+</html>
