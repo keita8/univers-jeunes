@@ -92,7 +92,7 @@
 
                         <div class="post-comments">
                             <header>
-                                <h3 class="h6">Commentaires <span class="no-of-comments"> ({{ post.comments.count}}) </span></h3>
+                                <h3 class="h6">Commentaire{{ post.comments.count|pluralize }} <span class="no-of-comments"> ({{ post.comments.count}}) </span></h3>
                             </header>
 
                             {% for comment in post.get_comments %}

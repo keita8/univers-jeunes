@@ -17,7 +17,7 @@ from post.views import (
 
 urlpatterns = [
 
-    path('admin/', admin.site.urls),
+    path('folk-universe/', admin.site.urls),
     path('', index, name='home'),
     path('blog/', blog, name='blog'),
     path('search/', search, name='search'),
