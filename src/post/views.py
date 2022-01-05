@@ -141,6 +141,7 @@ def post(request, slug):
     post = get_object_or_404(Post, slug=slug)
     most_recent = Post.objects.order_by('-timestamp')[:4]
     category_count = get_category_count()
+    comment_rebours = 'Il y a'
 
     if request.user.is_authenticated:
         PostView.objects.get_or_create(user=request.user, post=post)
@@ -159,7 +160,8 @@ def post(request, slug):
         'post': post,
         # 'page_request_var' : page_request_var,
         'most_recent': most_recent,
-        'category_count': category_count
+        'category_count': category_count,
+        'comment_rebours' : comment_rebours,
     }
 
     return render(request, 'post.html', context)
