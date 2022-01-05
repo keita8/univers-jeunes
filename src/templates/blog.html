@@ -41,7 +41,7 @@ Articles
                         {% endif %}
                       </div>
                       <div class="title"><span>{{ post.author.user.username|capfirst }}</span></div></a>
-                    <div class="date"><i class="icon-clock"></i>{{ post.timestamp|timesince }}</div>
+                    <div class="date"><i class="icon-clock"></i>publié à {{ post.timestamp|time:"H\h i\m" }}</div>
                     <div class="comments meta-last"><i class="icon-comment"></i>{{ post.comment_count }}</div>
                   </div>
                 </div>
