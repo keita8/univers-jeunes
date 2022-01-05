@@ -28,7 +28,7 @@
       
                 <div class="item d-flex align-items-center">
                   <div class="image"><img src=" {{ recent.post_image.url }} " alt="..." class="img-fluid"></div>
-                  <div class="title"><strong>{{ recent.title|capfirst|safe}}</strong>
+                  <div class="title"><strong>{{ recent.title|safe|capfirst}}</strong>
                     <div class="d-flex align-items-center">
                       <div class="views"><i class="icon-eye"></i> {{ recent.view_count }} </div>
                       <div class="comments"><i class="icon-comment"></i> {{ recent.comment_count}} </div>
