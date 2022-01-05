@@ -890,7 +890,7 @@ section.latest-posts header {
 .post .date {
     letter-spacing: 0.05em;
     font-weight: 400;
-    text-transform: uppercase;
+    text-transform: lowercase;
     color: #aaa;
 }
 
@@ -904,13 +904,18 @@ section.latest-posts header {
 }
 
 .post .title,
-.post .date,
 .post .comments,
 .post .views {
     font-weight: 400;
     color: #999;
     text-transform: capitalize;
 }
+
+.post .date{
+    font-weight: 400;
+    color: #999;
+}
+
 
 .post .title i,
 .post .date i,
