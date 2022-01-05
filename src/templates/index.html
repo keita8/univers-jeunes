@@ -146,8 +146,8 @@
 
                 </div>
               </div><a href=" {{ latest.get_absolute_url }} ">
-                <h3 class="h4"> {{ latest.title|safe|lower}} </h3></a>
-              <p class="text-muted">{{ latest.overview|slice:":150"|safe }}</p>
+                <h3 class="h4"> {{ latest.title|safe|upper}} </h3></a>
+              <p class="text-muted">{{ latest.overview|truncatewords":80"|safe }}</p>
             </div>
           </div>
 
