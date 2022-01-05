@@ -844,7 +844,7 @@ section.latest-posts header {
 }
 
 .post-meta .date {
-    text-transform: uppercase;
+    text-transform: lowercase;
     font-weight: 400;
 }
 
