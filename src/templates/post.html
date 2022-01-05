@@ -42,7 +42,7 @@
                         <div class="post-footer d-flex align-items-center flex-column flex-sm-row">
                             <a href="#" class="author d-flex align-items-center flex-wrap">
                                 <div class="avatar"><img src=" {{ post.author.profile_pic.url }} " alt="..." class="img-fluid"></div>
-                                <div class="title"><span> {{ post.author.user.username }} </span></div>
+                                <div class="title"><span> {{ post.author.user.username|capfirst }} </span></div>
                             </a>
                             <div class="d-flex align-items-center flex-wrap">
                                 <div class="date">

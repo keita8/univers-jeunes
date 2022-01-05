@@ -81,7 +81,7 @@
                         {% endif %}
 
                     </div>
-                    <div class="title"><span> {{ obj.author }} </span></div>
+                    <div class="title"><span> {{ obj.author|capfirst }} </span></div>
                   </a>
                   <div class="date"><i class="icon-clock"></i>publé à {{ obj.timestamp|time:"H\h i\m"}} </div>
                   <div class="comments"><i class="icon-comment"></i> {{ obj.comment_count }} </div>
