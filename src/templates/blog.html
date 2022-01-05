@@ -41,7 +41,7 @@ Articles
                         {% endif %}
                       </div>
                       <div class="title"><span>{{ post.author.user.username|capfirst }}</span></div></a>
-                    <div class="date"><i class="icon-clock"></i>publié à {{ post.timestamp|time:"H\h i\m" }}</div>
+                    <div class="date"><i class="icon-clock"></i>à {{ post.timestamp|time:"H\h i\m" }}</div>
                     <div class="comments meta-last"><i class="icon-comment"></i>{{ post.comment_count }}</div>
                   </div>
                 </div>
@@ -61,7 +61,9 @@ Articles
 
                 {% if queryset.has_previous %}
                   
-                <li class="page-item"><a href="?{{ page_request_var }}={{ queryset.previous_page_number}} " class="page-link"> <i class="fa fa-angle-left"></i></a></li>
+                <li class="page-item">
+                  <a href="?{{ page_request_var }}={{ queryset.previous_page_number}} " class="page-link"> <i class="fa fa-angle-left"></i></a>
+                </li>
                 {% else %}
 
                 {% endif %}
@@ -75,7 +77,7 @@ Articles
                 <li class="page-item"><a href="?{{ page_request_var }}={{ queryset.next_page_number}} " class="page-link"> <i class="fa fa-angle-right"></i></a></li>
 
                 {% else %}
-                
+
                 {% endif %}
 
 

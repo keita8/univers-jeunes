@@ -114,7 +114,8 @@ def blog(request):
     post_list = Post.objects.filter(status='publie')
 
     most_recent = Post.objects.order_by('-timestamp')[:4]
-    paginator = Paginator(post_list, 4)
+    per_page = 4
+    paginator = Paginator(post_list, per_page)
     page_request_var = 'page'
     page = request.GET.get(page_request_var)
 
@@ -130,6 +131,7 @@ def blog(request):
         'page_request_var': page_request_var,
         'most_recent': most_recent,
         'category_count': category_count,
+        'per_page': per_page
     }
     return render(request, 'blog.html', context)
 
