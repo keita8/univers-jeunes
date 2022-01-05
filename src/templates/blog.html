@@ -62,6 +62,7 @@ Articles
                 {% if queryset.has_previous %}
                   
                 <li class="page-item"><a href="?{{ page_request_var }}={{ queryset.previous_page_number}} " class="page-link"> <i class="fa fa-angle-left"></i></a></li>
+                {% else %}
 
                 {% endif %}
 
@@ -73,6 +74,8 @@ Articles
                   
                 <li class="page-item"><a href="?{{ page_request_var }}={{ queryset.next_page_number}} " class="page-link"> <i class="fa fa-angle-right"></i></a></li>
 
+                {% else %}
+                
                 {% endif %}
 
 
