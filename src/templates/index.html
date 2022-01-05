@@ -65,7 +65,7 @@
                     <h2 class="h4">{{ obj.title|safe|upper }}</h2>
                   </a>
                 </header>
-                <p>{{ obj.overview|safe|truncatechars:100}} </p>
+                <p><a href="{{ obj.get_absolute_url }}">{{ obj.overview|safe|truncatechars:100}} </a></p>
                 <footer class="post-footer d-flex align-items-center">
                   <a href="#" class="author d-flex align-items-center flex-wrap">
                     <div class="avatar">
