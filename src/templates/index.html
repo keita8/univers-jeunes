@@ -48,7 +48,11 @@
         <div class="row d-flex align-items-stretch">
         
         {% if not forloop.first and not forloop.last %}
-              <div class="image col-lg-5"><img src=" {{ obj.post_image.url }} " alt="..." class="img-responsive"></div>
+              <div class="image col-lg-5">
+                <a href="{{ obj.get_absolute_url }} ">
+                <img src=" {{ obj.post_image.url }} " alt="..." class="img-responsive">
+                </a>
+              </div>
           {% endif %} 
 
           <div class="text col-lg-7">
@@ -88,8 +92,11 @@
 
           {% if forloop.first or forloop.last %} 
           <div></div>
-              <div class="image col-lg-5 mb-2"><img src=" {{ obj.post_image.url }} " alt="..." 
-                ></div>
+              <div class="image col-lg-5 mb-2">
+                <a href="{{ obj.get_absolute_url }} ">
+                <img src=" {{ obj.post_image.url }} " alt="..." class="img-responsive">
+                </a>
+              </div>
           {% endif %} 
 
         </div>
