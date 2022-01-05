@@ -49,14 +49,14 @@
                                     <i class="icon-clock"> {{ post.timestamp|date:'j F Y '}} </i></div>
                                 <div class="views">
                                     <i class="icon-eye">
-                        {{ post.view_count }} 
-                      </i>
+                                        {{ post.view_count }} 
+                                    </i>
                                 </div>
 
                                 <div class="comments meta-last">
                                     <i class="icon-comment">
-                       {{ post.comment_count }} 
-                      </i>
+                                     {{ post.comment_count }} 
+                                    </i>
                                 </div>
 
                             </div>
@@ -91,9 +91,14 @@
                         </div>
 
                         <div class="post-comments">
+                            {% if post.get_comments %}
+                                
                             <header>
                                 <h3 class="h6">Commentaire{{ post.comments.count|pluralize }} <span class="no-of-comments"> ({{ post.comments.count}}) </span></h3>
                             </header>
+
+                            {% endif %}
+                            
 
                             {% for comment in post.get_comments %}
 
