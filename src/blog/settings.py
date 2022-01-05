@@ -1,7 +1,7 @@
 from pathlib import Path
 import os
 import environ
-# from decouple import config
+from decouple import config
 import dj_database_url
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -10,6 +10,12 @@ env = environ.Env()
 environ.Env.read_env(env_file=str(BASE_DIR / "blog" / ".env"))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = env("SECRET_KEY")
+
+# import environ
+# env = environ.Env(
+#     # set casting, default value
+#     DEBUG=(bool, False)
+# )
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
