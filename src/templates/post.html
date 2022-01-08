@@ -24,6 +24,7 @@
 
                             <div class="category">
                                 <a href="#"> {{ post.categories }} </a> 
+                                {% post_to_twitter "Article" : object.or_url "Partager sur Twitter" %}
                             </div>
 
                             {% if request.user.is_authenticated %}
