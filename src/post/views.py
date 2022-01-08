@@ -86,7 +86,7 @@ def get_category_count():
 # PAGE D'ACCUEIL
 
 def index(request):
-    queryset = Post.objects.filter(status='publie')
+    queryset = Post.objects.filter(status='publie').order_by('-timestamp')
     latest = Post.objects.filter(status='publie').order_by('-timestamp')[0:3]
 
     if request.method == "POST":
