@@ -52,6 +52,8 @@ INSTALLED_APPS = [
     'accounts',
     'galerie',
     'tendances',
+
+    'django_social_share',
 ]
 
 MIDDLEWARE = [
