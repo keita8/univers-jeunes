@@ -1,6 +1,5 @@
 {% extends "base.html" %}
  {% load static %} 
- {% load social_share %}
 {% block title %} Article {% endblock title %} 
 
 {% block content %}
@@ -24,7 +23,6 @@
 
                             <div class="category">
                                 <a href="#"> {{ post.categories }} </a> 
-                                {% post_to_twitter "Article" : object.or_url "Partager sur Twitter" %}
                             </div>
 
                             {% if request.user.is_authenticated %}
